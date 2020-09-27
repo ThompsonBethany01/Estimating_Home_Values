@@ -14,6 +14,11 @@ The purpose of this project is determine what influences this value based on pre
 >   - States and counties properties are located in
 >   - Distribution of tax rates for each county
 
+How does the current Zestimate® perform? According to [FreeStoneProperties](https://www.freestoneproperties.com/blog/truth-zillow-zestimates/#:~:text=Is%20a%20Zillow%20Zestimate%20High,about%20the%20accuracy%20of%20Zestimates.&text=For%20example%2C%20depending%20on%20the,only%2062%25%20of%20the%20time.),
+> "The median error for larger markets is usually around 2% of the sale price of the home. But the problem with Zestimates is 
+> that when they are wrong, they can be significantly wrong. For example, depending on the metro area, Zillow might be within 5% 
+> of the sale price only 62% of the time."
+
 ### Background
 ### Data Dictionary
 ## Initial Thoughts & Hypothesis
