@@ -41,6 +41,13 @@ The main tables within the Zillow database are predictions_2016 and predictions_
 | propertyzoningdesc        | zoning refers to municipal or local laws or regulations that dictate  how real property can and cannot be used in certain geographic areas  (chars with numbers) | discrete    |
 | rawcensustractandblock    | census tracts are relatively small subdivisions of a county block group is a cluster of blocks within a tract                                                    | discrete    |
 |                           |                                                                                                                                                                  |             |
+
+The visual below takes a more in-depth look at the original database. We can see how the properties tables for 2016 and 2017 contain a majority of the data. These tables also have a whopping amount of 52 columns. Before prepping the data, we can use this visual to make ideas on which features we may not need, can be combined, etc.  
+![zillow-database](https://i.pinimg.com/originals/ef/01/89/ef0189cace1f6e5626e1be0368370062.png)  
+
+The descriptive tables shown below have various ranges of values and corresponding meanings. Though we will not be joining these tables during the aquire stage, it has been added for reference. Theses values in the main predictions tables will need to be scaled so they have the same weight.  
+![zillow-desciptive-tables-with-values](https://i.pinimg.com/originals/85/c5/32/85c5323063cc33dcac255e045df3bd37.png)
+
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
