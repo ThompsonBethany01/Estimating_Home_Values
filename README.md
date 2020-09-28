@@ -22,6 +22,26 @@ How does the current Zestimate® perform? According to [FreeStoneProperties](htt
 > of the sale price only 62% of the time."
 
 ### Data Dictionary
+The main tables within the Zillow database are predictions_2016 and predictions_2017. These contain the observations of each house: the tax value and several different features of the house. The data definition table is below.
+
+|          Feature          |                                                                            Definition                                                                            |     Type    |
+|:-------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------:|
+| parcelid                  | assigned by your local tax assessment office, unique for each property                                                                                           | discrete    |
+| *sqft                     | squarefeet, length ft. x width ft.                                                                                                                               | continuous  |
+| buildingclass             | description of wall structure, materials, etc. (1-5 or null)                                                                                                     | categorical |
+| buildingqualitytypeid     | no description (1-12 or null)                                                                                                                                    | categorical |
+| decktypeid                | no description (66 or null)                                                                                                                                      | categorical |
+| finishedsqft*             | no description (1 - 290345)                                                                                                                                      | continuous  |
+| fips                      | Federal Information Processing Standards (6037, 6059, 6111, or null) uniquely identify geographic areas                                                          | categorical |
+| heatingorsystem           | description of air conditioning, such as energy source (1-25)                                                                                                    | categorical |
+| latitude                  | distance of a place north or south of the earth's equator                                                                                                        | continuous  |
+| longitude                 | distance of a place east or west of the meridian                                                                                                                 | continuous  |
+| pooltypeid*               | no description (1 or null)                                                                                                                                       | categorical |
+| propertycountylandusecode | Land use zones are the codes that the government uses to classify  parcels of land (chars with numbers)                                                          | discrete    |
+| propertyzoningdesc        | zoning refers to municipal or local laws or regulations that dictate  how real property can and cannot be used in certain geographic areas  (chars with numbers) | discrete    |
+| rawcensustractandblock    | census tracts are relatively small subdivisions of a county block group is a cluster of blocks within a tract                                                    | discrete    |
+|                           |                                                                                                                                                                  |             |
+
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
