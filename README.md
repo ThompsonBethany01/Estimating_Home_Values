@@ -46,9 +46,10 @@ The visual below takes a more in-depth look at the original database. We can see
 ![zillow-database](https://i.pinimg.com/originals/ef/01/89/ef0189cace1f6e5626e1be0368370062.png)  
 
 The descriptive tables shown below have various ranges of values and corresponding meanings. Though we will not be joining these tables during the aquire stage, it has been added for reference. Theses values in the main predictions tables will need to be scaled so they have the same weight.  
-![zillow-desciptive-tables-with-values](https://i.pinimg.com/originals/85/c5/32/85c5323063cc33dcac255e045df3bd37.png)
+  
+![zillow-desciptive-tables-with-values](https://i.pinimg.com/originals/85/c5/32/85c5323063cc33dcac255e045df3bd37.png)  
 
-For better quality images, Tthese visuals can also be found on my pinterest [here](https://www.pinterest.com/thompsonbethany01/estimating-home-values/).
+For better quality images, these visuals can also be found on my pinterest [here](https://www.pinterest.com/thompsonbethany01/estimating-home-values/).
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
