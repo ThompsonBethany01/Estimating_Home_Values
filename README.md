@@ -24,8 +24,8 @@ How does the current Zestimate® perform? According to [FreeStoneProperties](htt
 ### Data Dictionary
 The main tables within the Zillow database are predictions_2016 and predictions_2017. These contain the observations of each house: the tax value and several different features of the house. The data definition table is below.
 
-|          Feature          |                                                                            Definition                                                                            |     Type    |
-|:-------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------:|
+| Feature                   | Definition                                                                                                                                                       | Type        |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | parcelid                  | assigned by your local tax assessment office, unique for each property                                                                                           | discrete    |
 | *sqft                     | squarefeet, length ft. x width ft.                                                                                                                               | continuous  |
 | buildingclass             | description of wall structure, materials, etc. (1-5 or null)                                                                                                     | categorical |
@@ -41,7 +41,6 @@ The main tables within the Zillow database are predictions_2016 and predictions_
 | propertyzoningdesc        | zoning refers to municipal or local laws or regulations that dictate  how real property can and cannot be used in certain geographic areas  (chars with numbers) | discrete    |
 | rawcensustractandblock    | census tracts are relatively small subdivisions of a county block group is a cluster of blocks within a tract                                                    | discrete    |
 |                           |                                                                                                                                                                  |             |
-
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
