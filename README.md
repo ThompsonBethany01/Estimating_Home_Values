@@ -62,12 +62,15 @@ Taking a surface look as the database, it is apparent feature engineering will b
 More square footage increases value  
 > Null hypothesis: House square footage is independent of the tax value  
 > Alternative hypothesis: The larger the square feet, the greater the tax value  
+
 Older and younger houses have higher values (or could this be like a reverse bell curve? Old houses have historic value and new houses have value?)  
 > Null hypothesis: The age of the house is independent of the tax value  
 > Alternative hypothesis: Newer houses have higher tax values  
-Location affects property value
+
+Location affects property value  
 > Null hypothesis: The location of the house is independent of the tax values  
 > Alternative hypothesis: One county has higher tax values than the average  
+
 # Project Steps
 ## Acquire
 ## Prepare
