@@ -10,7 +10,7 @@ Deliverables for this project include:
 > - A reproducable Github repo containing
 >   - Walkthrough of the DS pipeline within a jupyter notebook
 >   - Acquire/Prepare modules in .py files
-> - Answers for the
+> - In a seperate presentation (adding link when complete), answers for the
 >   - States and counties properties are located in
 >   - Distribution of tax rates for each county
 
@@ -52,7 +52,22 @@ The descriptive tables shown below have various ranges of values and correspondi
 For better quality images, these visuals can also be found on my pinterest [here](https://www.pinterest.com/thompsonbethany01/estimating-home-values/).
 ## Initial Thoughts & Hypothesis
 ### Thoughts
+Taking a surface look as the database, it is apparent feature engineering will be neccessary to create manageable exploration and modeling from the 52 columns. This may include...
+- creating simpler features, such as story count being 1, 2, or more
+- combining different features, such as 
+- removing features with high null values
+- removing unnecessary features, such as long. and latt. when we also have region ids
+- scaling the final dataframe for modeling
 ### Hypothesis
+More square footage increases value  
+> Null hypothesis: House square footage is independent of the tax value  
+> Alternative hypothesis: The larger the square feet, the greater the tax value  
+Older and younger houses have higher values (or could this be like a reverse bell curve? Old houses have historic value and new houses have value?)  
+> Null hypothesis: The age of the house is independent of the tax value  
+> Alternative hypothesis: Newer houses have higher tax values  
+Location affects property value
+> Null hypothesis: The location of the house is independent of the tax values  
+> Alternative hypothesis: One county has higher tax values than the average  
 # Project Steps
 ## Acquire
 ## Prepare
