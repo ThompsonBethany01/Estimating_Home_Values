@@ -7,7 +7,9 @@ So what do we need to beat to make an improvement? Our current model has an erro
 ### Background
 ### Data Dictionary
 The following Data Quality 
-<embed src="thompsonbethany01/Predicting_Log_Error/Data_quality_report.pdf" type="application/pdf" target="_blank">Report</a> reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling.
+<embed src="thompsonbethany01/Predicting_Log_Error/Data_quality_report.pdf" target="_blank">Report</a> type="application/pdf" </a> 
+
+reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling.
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
