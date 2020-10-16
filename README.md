@@ -25,9 +25,5 @@ Within the acquire.py module, there are functions to:
 - [ ] Download Acquire.py, Prepare.py, and Final_Model.ipynb in your working directory.
 - [ ] Run the Final_Modeling.ipynb Jupyter Notebook.
 - [ ] Do your own exploring, modeling, etc.
-# About Me 
-
-<p align="center">
-  <b>The Author</b><br>
-  <img src="https://i.pinimg.com/564x/68/de/23/68de2379e0fec17a991ab4c1ab588c46.jpg">
-</p>  
+# Author
+![Home-Sale-Sign](https://i.pinimg.com/564x/68/de/23/68de2379e0fec17a991ab4c1ab588c46.jpg)
