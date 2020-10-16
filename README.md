@@ -7,8 +7,7 @@ So what do we need to beat to make an improvement? Our current model has an erro
 ### Background
 ### Data Dictionary
 The following Data Quality 
-<embed src="https://github.com/ThompsonBethany01/ThompsonBethany01.github.io/blob/master/pdfs/Data_quality_report.pdf" type="application/pdf" />
-
+<a href="https://github.com/ThompsonBethany01/ThompsonBethany01.github.io/blob/master/pdfs/Data_quality_report.pdf" target="_blank">Report</a>
 reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling.
 ## Initial Thoughts & Hypothesis
 ### Thoughts
