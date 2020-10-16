@@ -49,20 +49,9 @@ def get_home_data():
         # Querry selects the whole predicstion_2017 table from the database
         sql_querry = '''
                         SELECT *
-                        FROM properties_2017
-                        JOIN (SELECT id, logerror, pid, tdate FROM predictions_2017 AS pred_2017
-                        JOIN (SELECT parcelid AS pid, Max(transactiondate) AS tdate FROM predictions_2017 GROUP BY parcelid) AS sq1
-                        ON (pred_2017.parcelid = sq1.pid AND pred_2017.transactiondate = sq1.tdate)) AS sq2
-                        ON (properties_2017.parcelid = sq2.pid)
-                        LEFT JOIN airconditioningtype USING (airconditioningtypeid)
-                        LEFT JOIN architecturalstyletype USING (architecturalstyletypeid)
-                        LEFT JOIN buildingclasstype USING (buildingclasstypeid)
-                        LEFT JOIN heatingorsystemtype USING (heatingorsystemtypeid)
-                        LEFT JOIN propertylandusetype USING (propertylandusetypeid)
-                        LEFT JOIN storytype USING (storytypeid)
-                        LEFT JOIN typeconstructiontype USING (typeconstructiontypeid)
-                        LEFT JOIN unique_properties USING (parcelid)
-                        WHERE latitude IS NOT NULL AND longitude IS NOT NULL;
+                        FROM properties_2017 as prop
+                        JOIN predictions_2017 as pred ON pred.id = prop.id
+                        WHERE prop.propertylandusetypeid IN (260, 261, 263, 264, 266, 279);
                     '''
 
         # Connecting to the data base and using the query above to select the data

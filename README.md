@@ -1,11 +1,13 @@
 # Predicting Home Values for Zillow
 ## About the Project
 ### Goals
-When someone wants to know the value of a property, our website is often one of the top recommendations. However, there is always room for improvement, and I want to accomplish this improvement with clustering methodologies.  
+When someone wants to know the value of a property, our website is often one of the top recommendations. However, there is always room for improvement, and I want to accomplish this improvement with clustering methodologies to determine where error may be coming from.  
 
 So what do we need to beat to make an improvement? Our current model has an error of ____. This project holds the final model with an error of ___, and the files necessary to reproduce it.
 ### Background
 ### Data Dictionary
+The following Data Quality 
+<a href="thompsonbethany01/Predicting_Log_Error/Data_quality_report.pdf" target="_blank">Report.</a> reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling.
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
