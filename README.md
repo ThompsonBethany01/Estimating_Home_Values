@@ -6,9 +6,8 @@ When someone wants to know the value of a property, our website is often one of 
 So what do we need to beat to make an improvement? Our current model has an error of ____. This project holds the final model with an error of ___, and the files necessary to reproduce it.
 ### Background
 ### Data Dictionary
-The following Data Quality 
-<a href="https://github.com/ThompsonBethany01/ThompsonBethany01.github.io/blob/master/pdfs/Data_quality_report.pdf" target="_blank">Report</a>
-reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling.
+The following Data Quality [Report](https://drive.google.com/file/d/1wh3iKkAX7o-PZ46EcsHzoZbxtD-BKB6-/view)
+reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling. The data dictionary below will include the columns used or created after prepping this data.
 ## Initial Thoughts & Hypothesis
 ### Thoughts
 ### Hypothesis
