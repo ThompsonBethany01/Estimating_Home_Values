@@ -3,8 +3,10 @@
 ### Goals
 When someone wants to know the value of a property, our website is often one of the top recommendations. However, there is always room for improvement, and I want to accomplish this improvement with clustering methodologies to determine where error may be coming from.  
 
-So what do we need to beat to make an improvement? Our current model has an error of ____. This project holds the final model with an error of ___, and the files necessary to reproduce it.
+How can we improve? By creating a model to predict log error in our current Zestimate, we can determine what is driving this error.
 ### Background
+### Outline
+![Project-Outline](https://i.pinimg.com/originals/d9/1e/c8/d91ec86bd333b492345ce6bf8b323bbf.png)
 ### Data Dictionary
 The following Data Quality [Report](https://drive.google.com/file/d/1wh3iKkAX7o-PZ46EcsHzoZbxtD-BKB6-/view)
 reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling. The data dictionary below will include the columns used or created after prepping this data.
