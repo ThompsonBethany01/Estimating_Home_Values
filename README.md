@@ -25,6 +25,7 @@ Within the acquire.py module, there are functions to:
 # How to Reproduce
 - [x] Read this README.md
 - [ ] Download Acquire.py, Prepare.py, and Final_Model.ipynb in your working directory.
+    - Click [here](https://drive.google.com/file/d/1NMZyc3-N4zakq82ZDAZjeYl0BVAEoBhR/view) for a reference to the module functions.
 - [ ] Run the Final_Modeling.ipynb Jupyter Notebook.
 - [ ] Do your own exploring, modeling, etc.
 # Author
