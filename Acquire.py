@@ -63,7 +63,6 @@ def get_home_data():
         # Use ~ to flip the booleans and return the df as any columns that are not duplicated
         # df.loc accesses a group of rows and columns by label(s) or a boolean array
         df = df.loc[:,~df.columns.duplicated()]
-        df = df.drop('pid',axis=1)
 
         # The pandas to_csv function writes the data frame to a csv file
         # This allows data to be stored locally for quicker exploration and manipulation
@@ -75,25 +74,4 @@ def get_home_data():
         df = pd.read_csv('zillow_home.csv', index_col=0)
 
     return df
-###############################################################################################
-
-################################### DF Nulls ##################################################
-def null_counts(df):
-    '''
-    Return a df of null counts in each columns and the percentage of nulls in each column.
-    '''
-    # divisor of calculation, total observations including nulls
-    rows = df.shape[0]
-
-    # dividend of calculations, total count of nulls per columns in a df
-    nulls = pd.DataFrame(df.isnull().sum())
-
-    # renaming columns from default 0
-    nulls.columns = ['null_count']
-
-    # calculating percentage of nulls to total observations
-    nulls['null_percentage'] = (nulls / rows) * 100
-
-    # returns df of the null counts and percentages
-    return nulls
 ###############################################################################################

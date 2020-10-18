@@ -7,16 +7,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from sklearn.model_selection import train_test_split
+import sklearn.preprocessing
+
 ######################################## Prep Zillow Data ########################################
 
 def prepare_zillow():
     '''
     Acquire and prepare the zillow data obtained from the SQL database.
     Nulls are removed/replaced, outliers are removed, new features are created,
-    and columns are renamed/rearranged. Returns the prepped df.
+    and columns are renamed/rearranged. Returns the prepped df split into train, validate, test.
     '''
     # acquire the data from module
-    df = acquire.get_home_data()
+    df = Acquire.get_home_data()
     
     # Removing Nulls from Columns
     # sets thresh hold to 75 percent nulls, if more than %25 nulls it will be removed
@@ -78,7 +81,7 @@ def prepare_zillow():
     # mode of census tract and block
     census_mode = df.censustractandblock.mode()[0]
     # filling nulls with mode
-    df['censustractandblock'] = df.censustractandblock.fillna(mode)
+    df['censustractandblock'] = df.censustractandblock.fillna(census_mode)
     
     # Feature Engineering - creating columns
     # calculating bed+bath from 0 null columns of bedroom/bathroom count
@@ -112,7 +115,57 @@ def prepare_zillow():
         'land_use_code', 'land_use_type',
         'year_built', 'property_age', 'transaction_date', 'transaction_month'
        ]]
-    
-    return df
 
-    ################################### Preprocess Zillow Data ########################################
+    # split into train, validate, and test sets
+    train_and_validate, test = train_test_split(df, test_size = .10, random_state=123)
+    train, validate = train_test_split(train_and_validate, test_size = .22, random_state=123)
+
+    # These two print functions allow us to ensure the date is properly split
+    # Will print the shape of each variable when running the function
+    print("train shape: ", train.shape, ", validate shape: ", validate.shape, ", test shape: ", test.shape)
+
+    # Will print the shape of eachvariable as a percentage of the total data set
+    # Varialbe to hold the sum of all rows (total observations in the data)
+    total = df.count()[0]
+    print("\ntrain percent: ", round(((train.shape[0])/total),2) * 100, 
+            ", validate percent: ", round(((validate.shape[0])/total),2) * 100, 
+            ", test percent: ", round(((test.shape[0])/total),2) * 100)
+    
+    return train, validate, test
+
+######################################## Scale Zillow Data ########################################
+
+def scale_data(train, validate, test):
+
+    columns_to_scale = ['tax_value','structure_tax_value','land_tax_value','tax_amount',
+                       'bathrooms','bedrooms','bed_plus_bath','room_count','property_sqft',
+                       'lot_sqft']
+    
+    # 1. Create the Scaling Object
+    scaler = sklearn.preprocessing.StandardScaler()
+
+    # 2. Fit to the train data only
+    scaler.fit(train[columns_to_scale])
+
+    # 3. use the object on the whole df
+    # this returns an array, so we convert to df in the same line
+    train_scaled = pd.DataFrame(scaler.transform(train[columns_to_scale]))
+    validate_scaled = pd.DataFrame(scaler.transform(validate[columns_to_scale]))
+    test_scaled = pd.DataFrame(scaler.transform(test[columns_to_scale]))
+
+    # the result of changing an array to a df resets the index and columns
+    # for each train, validate, and test, we change the index and columns back to original values
+
+    # Train
+    train_scaled.index = train[columns_to_scale].index
+    train_scaled.columns = train[columns_to_scale].columns
+
+    # Validate
+    validate_scaled.index = validate[columns_to_scale].index
+    validate_scaled.columns = validate[columns_to_scale].columns
+
+    # Test
+    test_scaled.index = test[columns_to_scale].index
+    test_scaled.columns = test[columns_to_scale].columns
+
+    return train_scaled, validate_scaled, test_scaled
