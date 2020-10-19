@@ -38,7 +38,7 @@ def prepare_zillow():
     # Removing Columns with Repeated Data/Unecessary Data
     # don't need additional sqft, county id/city, assessment year, and census columns
     df = df.drop(columns=['finishedsquarefeet12', 'regionidcounty', 'rawcensustractandblock',
-                          'regionidcity','assessmentyear'], axis=1)
+                          'regionidcity','assessmentyear','id','propertycountylandusecode'], axis=1)
     
     # Removing Outliers from Continuous Variables
     # assigning columns to remove outliers
@@ -99,22 +99,48 @@ def prepare_zillow():
     # creating new feature as the second index (month) of the transaction date split
     df['transaction_month'] = df.transactiondate.str.split('-',expand=True)[1]
     
+    # Calculating Tax Rate for Property
+    # Tax paid / tax value * 100 = tax rate %
+    df['tax_rate'] = (df.taxamount / df.taxvaluedollarcnt) * 100
+
     # Renaming Columns
-    df.columns = ['index_id', 'parcel_id', 'bathrooms', 'bedrooms', 'property_sqft', 'county_id', 'full_bathrooms',
-                  'latitude', 'longitude', 'lot_sqft', 'land_use_code', 'land_use_type', 'zip_code', 'room_count',
+    df.columns = ['parcel_id', 'bathrooms', 'bedrooms', 'property_sqft', 'county_id', 'full_bathrooms',
+                  'latitude', 'longitude', 'lot_sqft', 'land_use_type', 'zip_code', 'room_count',
                   'year_built', 'structure_tax_value', 'tax_value', 'land_tax_value', 'tax_amount', 'census_id',
-                  'log_error', 'transaction_date', 'bed_plus_bath', 'property_age', 'transaction_month'
+                  'log_error', 'transaction_date', 'bed_plus_bath', 'property_age', 'transaction_month','tax_rate'
              ]
     
     # Reordering Columns
-    df = df[['index_id', 'parcel_id',
-        'log_error', 'tax_value', 'structure_tax_value', 'land_tax_value', 'tax_amount',
+    df = df[['parcel_id',
+        'log_error', 'tax_value', 'structure_tax_value', 'land_tax_value', 'tax_amount', 'tax_rate',
         'county_id', 'zip_code', 'latitude', 'longitude', 'census_id',
         'bathrooms', 'bedrooms', 'full_bathrooms', 'bed_plus_bath', 'room_count',
-        'property_sqft', 'lot_sqft',
-        'land_use_code', 'land_use_type',
+        'property_sqft', 'lot_sqft', 'land_use_type',
         'year_built', 'property_age', 'transaction_date', 'transaction_month'
        ]]
+
+    # Converting Unecessary Floats to Integers - such as county id 6011.0 to 6011
+    df['county_id'] = df.county_id.astype('int')
+
+    df['zip_code'] = df.zip_code.astype('int')
+
+    df['bathrooms'] = df.bathrooms.astype('int')
+
+    df['bedrooms'] = df.bedrooms.astype('int')
+
+    df['full_bathrooms'] = df.full_bathrooms.astype('int')
+
+    df['bed_plus_bath'] = df.bed_plus_bath.astype('int')
+
+    df['room_count'] = df.room_count.astype('int')
+
+    df['land_use_type'] = df.land_use_type.astype('int')
+
+    df['transaction_month'] = df.transaction_month.astype('int')
+
+    df['property_age'] = df.property_age.astype('int')
+
+    df['year_built'] = df.year_built.astype('int')
 
     # split into train, validate, and test sets
     train_and_validate, test = train_test_split(df, test_size = .10, random_state=123)
@@ -137,35 +163,35 @@ def prepare_zillow():
 
 def scale_data(train, validate, test):
 
-    columns_to_scale = ['tax_value','structure_tax_value','land_tax_value','tax_amount',
-                       'bathrooms','bedrooms','bed_plus_bath','room_count','property_sqft',
-                       'lot_sqft']
-    
+    train = train.drop(['log_error','census_id','transaction_date'], axis=1)
+    validate = validate.drop(['log_error','census_id','transaction_date'], axis=1)
+    test = test.drop(['log_error','census_id','transaction_date'], axis=1)
+
     # 1. Create the Scaling Object
     scaler = sklearn.preprocessing.StandardScaler()
 
     # 2. Fit to the train data only
-    scaler.fit(train[columns_to_scale])
+    scaler.fit(train)
 
     # 3. use the object on the whole df
     # this returns an array, so we convert to df in the same line
-    train_scaled = pd.DataFrame(scaler.transform(train[columns_to_scale]))
-    validate_scaled = pd.DataFrame(scaler.transform(validate[columns_to_scale]))
-    test_scaled = pd.DataFrame(scaler.transform(test[columns_to_scale]))
+    train_scaled = pd.DataFrame(scaler.transform(train))
+    validate_scaled = pd.DataFrame(scaler.transform(validate))
+    test_scaled = pd.DataFrame(scaler.transform(test))
 
     # the result of changing an array to a df resets the index and columns
     # for each train, validate, and test, we change the index and columns back to original values
 
     # Train
-    train_scaled.index = train[columns_to_scale].index
-    train_scaled.columns = train[columns_to_scale].columns
+    train_scaled.index = train.index
+    train_scaled.columns = train.columns
 
     # Validate
-    validate_scaled.index = validate[columns_to_scale].index
-    validate_scaled.columns = validate[columns_to_scale].columns
+    validate_scaled.index = validate.index
+    validate_scaled.columns = validate.columns
 
     # Test
-    test_scaled.index = test[columns_to_scale].index
-    test_scaled.columns = test[columns_to_scale].columns
+    test_scaled.index = test.index
+    test_scaled.columns = test.columns
 
     return train_scaled, validate_scaled, test_scaled
