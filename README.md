@@ -7,7 +7,7 @@ How can we improve? By creating a model to predict log error in our current Zest
 ### Background
 ### Outline
 
-<img src="https://i.pinimg.com/originals/d9/1e/c8/d91ec86bd333b492345ce6bf8b323bbf.png" width="250" height="420" /> 
+<img src="https://i.pinimg.com/originals/57/75/18/5775186c4bea7051bb0b701d41958434.png" /> 
 
 ### Data Dictionary
 The linked Data Quality [Report](https://drive.google.com/file/d/1wh3iKkAX7o-PZ46EcsHzoZbxtD-BKB6-/view)
