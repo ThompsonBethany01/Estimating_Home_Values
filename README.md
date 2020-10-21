@@ -21,7 +21,7 @@ The linked Data Quality [Report](https://drive.google.com/file/d/1wh3iKkAX7o-PZ4
 reviews the raw aquired data from the zillow database. It includes next steps for each feature, such as dropping the feature or preparing for modeling. The data dictionary below will include the columns used or created after prepping this data.  
 
 <p align="center">
-  <img src="https://i.pinimg.com/originals/21/12/10/211210b304ce26a7f87bd770fefb7c7e.png" width="800" height="500" >
+  <img src="https://i.pinimg.com/originals/90/9f/6e/909f6e6a63918d591f56079228fc8b3a.png" width="800" height="500" >
 </p> 
 
 ## Initial Thoughts & Hypothesis
