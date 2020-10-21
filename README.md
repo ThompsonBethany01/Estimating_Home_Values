@@ -3,7 +3,14 @@
 ### Goals
 When someone wants to know the value of a property, our website is often one of the top recommendations. However, there is always room for improvement, and I want to accomplish this improvement with clustering methodologies to determine where error may be coming from. How can we improve? By creating a model to predict log error in our current Zestimate, we can determine what is driving this error.
 ### Background
+According to the Zillow Kaggle competition,
+> "By continually improving the median margin of error (from 14% at the onset to 5% today), Zillow has since become established as one of the largest, most 
+> trusted marketplaces for real estate information in the U.S. and a leading example of impactful machine learning."  
 
+````
+                    The log error is defined as logerror=log(Zestimate)−log(SalePrice)
+````
+ 
 ### Outline
 The organization of this project is visualized below. Only Final_Model.ipynb and the .py files are necessary to reproduce. However, the module notebooks go more in-depth than the final notebook. Both the module notebooks and pdfs are additional resources about the project.
 
@@ -56,9 +63,10 @@ Final model chosen was a Polynomial Linear Regression with degree=3 on the top 9
 - Validate RMSE: 0.21491
 - Test RMSE: 0.31837
 ## Conclusion
+Clusters and features explored did not have a significant difference with respect to log error. More exploration is needed to determine if other clusters can be created. Could these improve the model that predicts log error? Right now, the model's root mean squared error was about .1 higher than the baseline.
 # How to Reproduce
 - [x] Read this README.md
-- [ ] Download Acquire.py, Prepare.py, and Final_Model.ipynb in your working directory.
+- [ ] Download Acquire.py, Prepare.py, Model.py, and Final_Model.ipynb in your working directory.
     - Click [here](https://drive.google.com/file/d/1NMZyc3-N4zakq82ZDAZjeYl0BVAEoBhR/view) for a reference to the module functions.
 - [ ] Run the Final_Modeling.ipynb Jupyter Notebook.
 - [ ] Do your own exploring, modeling, etc.
