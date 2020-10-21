@@ -24,9 +24,16 @@ reviews the raw aquired data from the zillow database. It includes next steps fo
   <img src="https://i.pinimg.com/originals/90/9f/6e/909f6e6a63918d591f56079228fc8b3a.png" width="800" height="500" >
 </p> 
 
-## Initial Thoughts & Hypothesis
-### Thoughts
-### Hypothesis
+## Hypothesis
+Month of transaction / Property square footage / Year built 
+                                                      ...effects log error.  
+> Null hypothesis: There is no significant effect of _______ and log error.   
+> Alternative hypothesis: There is a significant effect of ______ on log error.   
+
+Tax Cluster / Sqft Cluster / Room and Age Cluster
+                                                      ...effects log error.  
+> Null hypothesis: There is no significant difference of average log error in ______ cluster groupings.  
+> Alternative hypothesis: There is a significant difference of average log error in at least 2 ______ cluster groupings.  
 # Project Steps
 ## Acquire
 Within the acquire.py module, there are functions to:
